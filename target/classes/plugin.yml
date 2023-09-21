@@ -1,0 +1,10 @@
+name: InfiniteGoldenCarrot
+version: '1.1'
+main: com.ashkiano.infinitegoldencarrot.InfiniteGoldenCarrot
+api-version: '1.16'
+author: AshKiano
+description: Plugin providing an InfiniteGoldenCarrot.
+commands:
+  infinitegoldencarrot:
+    description: Gives the player an InfiniteGoldenCarrot.
+    usage: /<command>
