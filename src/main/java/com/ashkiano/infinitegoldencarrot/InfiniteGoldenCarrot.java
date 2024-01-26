@@ -24,6 +24,8 @@ public class InfiniteGoldenCarrot extends JavaPlugin implements Listener {
 
         Metrics metrics = new Metrics(this, 19577);
 
+        this.getLogger().info("Thank you for using the InfiniteGoldenCarrot plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
+
     }
 
     public class GoldenCarrotCommand implements CommandExecutor {
