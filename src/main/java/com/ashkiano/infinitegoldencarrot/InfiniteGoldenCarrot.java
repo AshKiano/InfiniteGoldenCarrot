@@ -27,6 +27,12 @@ public class InfiniteGoldenCarrot extends JavaPlugin implements Listener {
         this.getCommand("infinitegoldencarrot").setExecutor(new GoldenCarrotCommand());
         Bukkit.getServer().getPluginManager().registerEvents(this, this);
 
+        this.saveDefaultConfig();
+        if (!getConfig().isSet("permission")) {
+            getConfig().set("permission", "infinitegoldencarrot.use");
+            saveConfig();
+        }
+
         Metrics metrics = new Metrics(this, 19577);
 
         this.getLogger().info("Thank you for using the InfiniteGoldenCarrot plugin! If you enjoy using this plugin, please consider making a donation to support the development. You can donate at: https://donate.ashkiano.com");
@@ -39,6 +45,13 @@ public class InfiniteGoldenCarrot extends JavaPlugin implements Listener {
         public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
+
+                String permission = InfiniteGoldenCarrot.this.getConfig().getString("permission");
+
+                if (!player.hasPermission(permission)) {
+                    player.sendMessage("You do not have permission to use this command.");
+                    return true;
+                }
 
                 ItemStack carrot = new ItemStack(Material.GOLDEN_CARROT);
                 ItemMeta meta = carrot.getItemMeta();
